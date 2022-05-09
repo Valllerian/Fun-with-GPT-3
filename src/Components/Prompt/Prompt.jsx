@@ -6,9 +6,9 @@ const Prompt = () => {
   // custom hook for inputs:
   const [prompt, updatePrompt, resetPrompt] = useInputState("");
 
-  // storing our prompts and responses:
+  // storing our prompts:
   const [prompts, setPrompts] = useState([]);
-  const [responces, setResponces] = useState([]);
+  
 
   // handling the form here:
   const handleSubmit = (e) => {
@@ -16,9 +16,7 @@ const Prompt = () => {
     if (prompt !== "") {
       // console.log(prompt);
       let currentPrompt = prompt;
-      console.log(prompts);
       setPrompts([...prompts, currentPrompt]);
-      console.log(prompts);
       resetPrompt("");
     } else {
       alert("Type in a prompt please!");
@@ -27,6 +25,7 @@ const Prompt = () => {
 
   return (
     <div>
+      {/* Main form for handling users input */}
       <form className="" onSubmit={(e) => handleSubmit(e)}>
         <div className="">
           <label className="">
@@ -41,27 +40,20 @@ const Prompt = () => {
           </label>
         </div>
       </form>
-      {/* <h3>Responses:</h3> */}
+     
+     {/* mapping through all prompts and displaying them on the page */}
       <div>
         {prompts[0] ? (
           <div>
             {" "}
-            <h3>Responses:</h3>
+            {/* <h3>Responses:</h3> */}
             {prompts.map((prompt) => {
-              return <div key={prompt.value}>{prompt}</div>;
-            })}
-          </div>
-        ) : null}
-      </div>
-      <div>
-        {responces[0] ? (
-          <div>
-            {responces.map((responce) => {
               return (
                 <div key={prompt.value}>
-                  <Response
-                  // use new library for uuid for each key!
-                  />
+                  {prompt}
+                  <div>
+                    <Response prompt={prompt} />
+                  </div>
                 </div>
               );
             })}
