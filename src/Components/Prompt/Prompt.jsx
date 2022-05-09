@@ -13,6 +13,16 @@ const Prompt = () => {
   // handling the form here:
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (prompt !== "") {
+      // console.log(prompt);
+      let currentPrompt = prompt;
+      console.log(prompts);
+      setPrompts([...prompts, currentPrompt]);
+      console.log(prompts);
+      resetPrompt("");
+    } else {
+      alert("Type in a prompt please!");
+    }
   };
 
   return (
@@ -31,30 +41,32 @@ const Prompt = () => {
           </label>
         </div>
       </form>
-      <h3>Responses:</h3>
+      {/* <h3>Responses:</h3> */}
       <div>
-        {prompts[0]
-          ? prompts.map((prompt) => {
-              return (
-                <div key={prompt.value}>
-                  {prompt.value}
-                </div>
-              );
-            })
-          : null}
+        {prompts[0] ? (
+          <div>
+            {" "}
+            <h3>Responses:</h3>
+            {prompts.map((prompt) => {
+              return <div key={prompt.value}>{prompt}</div>;
+            })}
+          </div>
+        ) : null}
       </div>
       <div>
-        {responces[0]
-          ? responces.map((responce) => {
+        {responces[0] ? (
+          <div>
+            {responces.map((responce) => {
               return (
                 <div key={prompt.value}>
                   <Response
-                    // use new library for uuid for each key!
+                  // use new library for uuid for each key!
                   />
                 </div>
               );
-            })
-          : null}
+            })}
+          </div>
+        ) : null}
       </div>
     </div>
   );
