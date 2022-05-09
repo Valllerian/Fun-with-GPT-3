@@ -14,7 +14,6 @@ const Prompt = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (prompt !== "") {
-      // console.log(prompt);
       let currentPrompt = prompt;
       setPrompts([...prompts, currentPrompt]);
       resetPrompt("");
@@ -50,7 +49,6 @@ const Prompt = () => {
             {prompts.map((prompt) => {
               return (
                 <div key={prompt.value}>
-                  {prompt}
                   <div>
                     <Response prompt={prompt} />
                   </div>

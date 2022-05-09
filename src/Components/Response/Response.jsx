@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from "react";
 
-const Response = () => {
+const Response = (props) => {
+    let userPrompt = props.prompt
   return (
-    <div>Response</div>
+      <div>
+<div>User said: {userPrompt}</div>
+<div>Bot said: </div>
+      </div>
+    
   )
 }
 
