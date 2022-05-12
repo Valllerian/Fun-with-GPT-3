@@ -17,7 +17,7 @@ const Response = (props) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer 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`,
+      Authorization: `Bearer `,
     },
     body: JSON.stringify(data),
    });
